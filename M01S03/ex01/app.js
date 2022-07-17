@@ -3,6 +3,7 @@ var object = {
   surname: 'Iordache',
   age: 35,
   petOwner: false,
+  carOwner: true,
 };
 
 console.warn(`
@@ -31,4 +32,27 @@ console.warn(`
 `);
 console.log(
   object.name + ' ' + object.surname + ' are ' + object.age + ' ani.',
+);
+
+console.warn(`
+  Afiseaza fraza “xxx s-a nascut in yyy.” in
+  consola folosind operatorul de concatenare
+`);
+console.log(
+  object.name + ' ' + 's-a nascut in' + ' ' + ((2022 - object.age).toString()) + '.',
+);
+
+console.warn(`
+  Afiseaza fraza “Dragos” in
+  consola folosind operatorul de concatenare
+`);
+console.log(
+  object.name,
+);
+
+console.warn(`
+  Afiseaza fraza “35” in
+  consola folosind operatorul de concatenare
+`);
+console.log((object.age).toString(),
 );

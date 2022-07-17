@@ -64,3 +64,18 @@ console.log(
     ' ' +
     carol.friends.andra.friends.person.surname,
 );
+
+console.warn(`
+   afiseaza numele complet al lui Larry.
+`);
+console.log(
+  andra.friends.larry.name +
+    ' ' +
+    andra.friends.larry.surname,
+);
+
+console.warn(`
+  Afiseaza 14 =numarul total de caractere al numelui complet al lui Person`);
+console.log(
+  (larry.friends.steven.friends.person.name + larry.friends.steven.friends.person.surname),
+);
