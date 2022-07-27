@@ -116,3 +116,50 @@ for (var i = 0; i < person.friends.length; i++) {
   if (ageDiff > 2) console.log(ageDiff);
 }
 // returneaza val absoluta a nr.
+
+console.warn(
+  `Afiseaza fraza: "Intre Dragos si Larry este o diferenta de xx ani.
+  Intre Dragos si Steven... ". Repeta pentru tot arrayul friends.
+`,
+);
+
+var message = '';
+for (var i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  var ageDiff = Math.abs(person.age - friend.age);
+
+  message +=
+    'Intre ' +
+    person.name +
+    ' si ' +
+    friend.name +
+    ' este o diferenta de ' +
+    ageDiff +
+    ' ani. ';
+}
+
+console.log(message.trim());
+//sa nu scape spatii
+
+console.warn(
+  `
+  Afiseaza fraza “Prietenii mei sunt: xxx yyy, xxx yyy, xxx yyy.”
+  in ordine inversa a arrayului de prieteni. (Numarand de la length la 0).
+  `,
+);
+
+var message = 'Prietenii mei sunt: ';
+for (var i = person.friends.length - 1; i >= 0; i--) {
+  //ordine inversa var i = person.friends.length - 1
+  var friend = person.friends[i];
+  var punctuation = ', ';
+
+  //suprascriere punctuatie pe ultima iteratie:
+  if (i === 0) {
+    punctuation = '.';
+  }
+
+  message += friend.name + ' ' + friend.surname + punctuation;
+}
+
+console.log(message);
