@@ -155,6 +155,10 @@ console.warn(
     in ordine inversa elementele arrayului skills.
   `,
 );
-person.skills.reverse().forEach(function (skill) {
-  console.log(skill);
-});
+person.skills
+  .slice()
+  .reverse()
+  .forEach(function (skill) {
+    console.log(skill);
+  });
+//slice = copiere, inversare, rulare forEach, in consola sunt puse invers
