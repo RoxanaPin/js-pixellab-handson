@@ -163,3 +163,88 @@ for (var i = person.friends.length - 1; i >= 0; i--) {
 }
 
 console.log(message);
+
+console.warn(
+  `
+  Afiseaza fraza: "Intre Dragos si Larry este o diferenta de xx ani. Intre Dragos si Steven... ",
+  doar daca varsta prietenului este impara.
+`,
+);
+
+var message = '';
+for (var i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  var ageDiff = Math.abs(person.age - friend.age);
+
+  if (friend.age % 2 !== 0) {
+    message +=
+      'Intre ' +
+      person.name +
+      ' si ' +
+      friend.name +
+      ' este o diferenta de ' +
+      ageDiff +
+      ' ani. ';
+  }
+}
+
+console.log(message.trim());
+
+console.warn(
+  `
+  Folosind proprietatea length a arrayului skills si o bucla for,
+  afiseaza in ordine inversa elementele arrayului skills.
+  Atentie, va trebui sa numeri invers, de la length la 0.
+  `,
+);
+
+for (var i = person.skills.length - 1; i >= 0; i--) {
+  var friend = person.skills[i];
+  console.log(friend);
+}
+
+// Folosind obiectul person si un for, afiseaza in consola skillurile pe care le are persoana
+for (var i = 0; i < person.skills.length - 1; i++) {
+  var friend = person.skills[i];
+  console.log(friend);
+}
+
+console.warn(`In mod similar, afiseaza skillurile care incep cu c `);
+
+for (var i = 0; i < person.skills.length - 1; i++) {
+  var skill = person.skills[i];
+  if (skill[0] === 'c') {
+    console.log(skill);
+  }
+}
+
+console.warn(
+  `Folosind un for afiseaza propozitia: "Numele de familie ale prietenilor mei sunt: xxx, xxx, xxx."`,
+);
+
+var message = 'Numele de familie ale prietenilor mei sunt: ';
+
+for (var i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  var punctuation = ', ';
+
+  if (i === person.friends.length - 1) {
+    punctuation = '.';
+  }
+
+  message = message + friend.surname + punctuation;
+}
+console.log(message);
+
+console.warn(
+  `
+  Folosind un for, afiseaza numarul total de ani pe care il au persoanele din arrayul friends
+  `,
+);
+
+var sumAge = 0;
+for (var i = 0; i < person.friends.length; i++) {
+  var friend = person.friends[i];
+  sumAge = sumAge + friend.age;
+}
+console.log(sumAge.toString());

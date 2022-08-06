@@ -26,7 +26,7 @@ console.warn(
   Afiseaza propozitia: “Suntem in anul an.”.
   `,
 );
-console.log(`Suntem in anul ${dateBuilder[0]}.`);
+console.log(`Suntem in anul ${dateBuilder[0]()}.`);
 
 console.warn(
   `
@@ -41,6 +41,4 @@ console.warn(
   `,
 );
 
-console.log(`Astazi este ${dateBuilder[1]}.`);
-
-//5 din 8 trebuie sa fie, sa iau din comit
+console.log(`Astazi este ${dateBuilder[1]()}.`);

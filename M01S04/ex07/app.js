@@ -56,7 +56,9 @@ for (var i = 0; i < friendsCount; i++) {
 }
 
 console.warn(
-  `Folosind keywordul continue, afiseaza numele complet inversat al prietenilor, doar daca numarul de caractere total al numelor lor este mai mare de 13 sub forma de propozitii “Prenume Nume are mai mult de 13 caractere.”.
+  `Folosind keywordul continue, afiseaza numele complet inversat al prietenilor,
+  doar daca numarul de caractere total al numelor lor este mai mare de 13 sub forma de propozitii
+  “Prenume Nume are mai mult de 13 caractere.”.
   `,
 );
 
@@ -69,4 +71,36 @@ for (var i = 0; i < friendsCount; i++) {
   }
 
   console.log(fullName + ' are mai mult de 13 caractere.');
+}
+
+console.warn(
+  `Folosind o bucla for afiseaza proprietatea name a tuturor obiectelor din arrayul friends.`,
+);
+
+for (var i = 0; i < friendsCount; i++) {
+  console.log(friends[i].name);
+}
+
+console.warn(`Afiseaza numele complet al tuturor prietenilor.`);
+
+for (var i = 0; i < friendsCount; i++) {
+  console.log(friends[i].name + ' ' + friends[i].surname);
+}
+
+console.warn(
+  `Folosind keywordul break, afiseaza numele complet al prietenilor dar opeste bucla
+  la primul surname care are numarul de caractere mai mare sau egal decat 9 si afiseaz-l
+  intr-o propozitie de forma “M-am oprit la Nume Prenume."
+  `,
+);
+
+for (var i = 0; i < friendsCount; i++) {
+  var friend = friends[i];
+  var fullName = friend.name + ' ' + friend.surname;
+
+  if (friend.surname.length >= 9) {
+    break;
+  }
+
+  console.log('M-am oprit la ' + fullName);
 }
