@@ -48,3 +48,36 @@ console.log(
     'Age',
   )} ani si m-am nascut in anul ${birthYear}.`,
 );
+
+console.warn(`
+Folosind accesorul afiseaza numele persoanei.
+`);
+
+function accessor(methodSuffix) {
+  const methodName = `get${methodSuffix}`;
+
+  return person[methodName]();
+}
+
+console.log(accessor('Name'));
+
+console.warn(
+  `
+  Afiseaza varsta persoanei.
+  `,
+);
+console.log(`${accessor('Age')}`);
+
+console.warn(
+  `
+  Afiseaza anul de nastere al persoanei folosind anul curent.
+  Intr-o propozitie de forma “M-am nascut in 1987.”  `,
+);
+console.log(`M-am nascut in ${birthYear}.`);
+
+console.warn(
+  `
+  Afiseaza propozitia “Ma numesc xxx yyy si am aa ani!”
+  `,
+);
+console.log(`Ma numesc ${accessor('Name')} si am ${accessor('Age')} ani!`);

@@ -16,3 +16,21 @@ removeButton.addEventListener('click', function () {
 function clickHandler() {
   alert('Ai apasat butonul!');
 }
+
+// Adauga un buton nou in document cu id-ul query si folosind addEventListener()
+//  ataseaza un eveniment care sa foloseasca metoda prompt()
+// pentru a afla varsta utilizatorului.
+
+const button2 = document.getElementById('query');
+button2.addEventListener('query', clickHandler);
+
+function clickHandler() {
+  alert('Care este varsta ta?');
+}
+
+// Salveaza rezultatul metodei prompt intr-o variabila si afiseaza
+// in consola folosind template strings: “Ai aa ani.”.
+
+// Creaza un paragraf cu idul message si folosind getElementById()
+// stocheaza elementul intr-o variabila, apoi folosind innerText,
+// afiseaza mesajul de mai devreme in acest paragraf.
