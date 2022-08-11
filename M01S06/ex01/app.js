@@ -11,12 +11,26 @@ const car = {
   speed: 50,
   isTrunkOpen: false,
   areLightsOn: false,
+  topSpeed: 160,
+  topReverseSpeed: -50,
 
   accelerate: function () {
     this.speed++; //this.speed este un pointer/referinta catre car
   },
   decelerate: () => {
     this.speed--;
+  },
+
+  stop: function () {
+    car.speed = 0;
+  },
+
+  setSpeed: function () {
+    if (car.speed < topSpeed) {
+      if (car.speed > this.topReverseSpeed) {
+        console.log(`${car.speed}`);
+      }
+    }
   },
 
   openTrunk: function () {
@@ -56,4 +70,21 @@ const car = {
 // Adauga o proprietate numita topSpeed si asigneaza-i valoarea 160.
 // Adauga o proprietate numita topReverseSpeed si asigneaza-i valoarea -50.
 // Adauga o metoda numita stop() care sa faca proprietatea speed 0, apoi afiseaza viteza.
-// Adauga  o metoda numita setSpeed() care sa poata primi un parametru fix pentru viteza. Metoda trebuie sa verifice ca nu se depasesc limitele inferioare si superioare, caz in care se folosesc proprietatile topSpeed si topReverseSpeed
+
+// Adauga  o metoda numita setSpeed() care sa poata primi un parametru fix pentru viteza.
+//  Metoda trebuie sa verifice ca nu se depasesc limitele inferioare si superioare,
+// caz in care se folosesc proprietatile topSpeed si topReverseSpeed
+
+console.warn(`
+  Afiseaza propozitia: "Masina era marca make si se deplasa cu speed km/h.".
+  `);
+
+console.log(`Masina era marca ${car.make} si se deplasa cu ${car.speed} km/h.`);
+
+console.warn(`
+Decelereaza masina cu 5 unitati apoi afiseaza propozitia: "Viteza noua este speed km/h".
+  `);
+
+const car2 = decelerate(5);
+
+console.log(`Viteza noua este ${car2} km/h`);
