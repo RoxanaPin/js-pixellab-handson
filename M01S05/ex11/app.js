@@ -66,21 +66,27 @@ console.warn(
   `,
 );
 
-const calculateSurface = (width, height) => {
-  return width * height;
+// const calculateSurface = (width, height) => {
+//   return width * height;
+// };
+// const squ = calculateSurface(2, 2);
+// console.log(`${squ}`);
+
+const calculateSurface = (argumenths) => {
+  switch (argumenths) {
+    case 'rectangle':
+      argumenths = 2;
+      return argumenths * argumenths;
+      break;
+    case 'square':
+      argumenths = 1;
+      return argumenths ** 2;
+      break;
+    case 'paralelipiped':
+      argumenths = 3;
+      return argumenths * argumenths * argumenths;
+      break;
+    default:
+      console.log(`${calculateSurface}`);
+  }
 };
-
-const squ = calculateSurface(2, 2);
-console.log(`${squ}`);
-
-const rectangle = width * height;
-switch (rectangle) {
-  case 'square':
-    console.log(width ** 2);
-    break;
-  case 'paralelipiped':
-    console.log(width * height * length);
-    break;
-  default:
-    console.log(`${calculateSurface}`);
-}
