@@ -78,3 +78,5 @@ const opel = new Car('Opel', 'red', 4, 3);
 //Ruleaza o bucla prin forEach si afiseaza propozitiile (pentru fiecare din masini)
 //“Masina era marca make si se deplasa cu speed km/h.”
 //In fiecare iteratie, decelereaza masina cu 5 unitati, apoi afiseaza: “Viteza noua este speed km/h.”
+
+var cars = [opel, audi];
