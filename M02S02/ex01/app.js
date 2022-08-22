@@ -41,3 +41,45 @@ $('<h2>', {
   text: 'Mesaje',
 }).prependTo($container);
 // prepend=se duce in fata containerului;
+
+$container.after(
+  $('<div>', {
+    class: 'navigation',
+  }),
+);
+
+$('.navigation').append(
+  $('<a>', {
+    text: 'Primul link',
+    href: '/',
+    title: 'Test',
+    class: 'nav-link',
+  }),
+);
+
+$('.navigation .nav-link')
+  .before(
+    $('<h2>', {
+      text: 'Navigatie',
+    }),
+  )
+  .prepend($('<sup>', { text: 1 }));
+
+$container.before($('<h1>', { text: 'Invat jQuery' }));
+
+const $docs = $('<p>', { text: 'Documentatia jQuery poate fi gasita ' });
+$docs
+  .append(
+    $('<a>', {
+      href: 'https://api.jquery.com/',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+      text: 'aici',
+    }),
+  )
+  .append(
+    $('<span>', {
+      text: '.',
+    }),
+  )
+  .insertAfter($('.navigation'));
