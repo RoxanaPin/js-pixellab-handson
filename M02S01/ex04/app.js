@@ -1,24 +1,73 @@
-class Car {
-  // e = document.createElement;
-  // e este un element, ca sa nu repet 'document.createElement' de fiecare data=pointer;
-  // nu a functionat aceasta varianta, facem din e functie
+// // class Car {
+//   // e = document.createElement;
+//   // e este un element, ca sa nu repet 'document.createElement' de fiecare data=pointer;
+//   // nu a functionat aceasta varianta, facem din e functie
 
+//     // px=pixeli
+
+//     // this.car = document.createElement('div');
+//     // this.car = this.e('div');
+//     // this.car.classList.add('car');
+//     // this.frame.append(this.car);
+//     //leg this.frame de this.car;
+
+//   // render() {
+//   //   document.body.append(this.frame);
+
+//   //   return this;
+//   //   // this=pointer catre locatia in memorie catre fiecare browser in parte
+//   // }
+
+//   // turnLightOn() {
+//   //   //manipuleaza elementul de DOm si pune clasa;
+//   //   this.lightFront.classList.add('light--on');
+
+//   //   return this;
+//   // }
+
+//   // turnLightOff() {
+//   //   this.lightFront.classList.remove('light--on');
+
+//   //   return this;
+//   //   // returneaza instantza;
+//   }
+
+//   e(elementName) {
+//     //wrapper in action
+//     return document.createElement(elementName);
+//   }
+//   // e este o functie care inlocuieste 'document.createElement';
+// }
+// //functia render introduce frame.ul in DOM
+
+// const car01 = new Car(350, 16, 'red');
+// car01.render();
+// const car02 = new Car(16, 350, 'blue');
+// car02.render();
+
+// const car03 = new Car(16, 16, 'teal').render().turnLightOn();
+// // car03.render();
+// // car03.turnLightOn();
+
+// // scriu in consola 'car03.turnLightOff()' si imi inchide farul la masina teal, deci merge
+
+class Car {
+  areHazardsOn = false;
+  intervalId = -1;
+  isLightOn = false;
   constructor(positionX, positionY, color) {
     this.positionX = positionX;
     this.positionY = positionY;
     this.color = color;
 
-    this.frame = document.createElement('div');
+    this.frame = this.e('div');
     this.frame.classList.add('frame');
     this.frame.style.left = `${this.positionX}px`;
     this.frame.style.top = `${this.positionY}px`;
-    // px=pixeli
 
-    // this.car = document.createElement('div');
     this.car = this.e('div');
     this.car.classList.add('car');
     this.frame.append(this.car);
-    //leg this.frame de this.car;
 
     this.carTop = this.e('div');
     this.carTop.classList.add('car__top');
@@ -57,38 +106,51 @@ class Car {
     document.body.append(this.frame);
 
     return this;
-    // this=pointer catre locatia in memorie catre fiecare browser in parte
   }
 
   turnLightOn() {
-    //manipuleaza elementul de DOm si pune clasa;
     this.lightFront.classList.add('light--on');
+    this.isLightOn = true;
 
     return this;
   }
 
   turnLightOff() {
     this.lightFront.classList.remove('light--on');
+    this.isLightOn = false;
 
     return this;
-    // returneaza instantza;
   }
 
   e(elementName) {
-    //wrapper in action
+    // wrappers in action
     return document.createElement(elementName);
   }
-  // e este o functie care inlocuieste 'document.createElement';
+
+  toggleHazards() {
+    if (this.areHazardsOn === true) {
+      clearInterval(this.intervalId);
+      this.areHazardsOn = false;
+
+      if (this.isLightOn === true) {
+        this.lightFront.classList.add('light--on');
+      } else {
+        this.lightFront.classList.remove('light--on');
+      }
+
+      return;
+    }
+    const self = this;
+
+    self.intervalId = setInterval(function () {
+      self.lightFront.classList.toggle('light--on');
+    }, 1000);
+    self.areHazardsOn = true;
+  }
 }
-//functia render introduce frame.ul in DOM
 
-const car01 = new Car(350, 16, 'red');
+const car01 = new Car(250, 16, 'red');
 car01.render();
-const car02 = new Car(16, 350, 'blue');
+const car02 = new Car(16, 250, 'blue');
 car02.render();
-
 const car03 = new Car(16, 16, 'teal').render().turnLightOn();
-// car03.render();
-// car03.turnLightOn();
-
-// scriu in consola 'car03.turnLightOff()' si imi inchide farul la masina teal, deci merge
